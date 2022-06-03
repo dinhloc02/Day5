@@ -43,7 +43,7 @@ public class LogicSubject {
 
     public static void showInfo() {
             try {
-                FileWriter fw = new FileWriter("file/data.txt",true);
+                FileWriter fw = new FileWriter("data.txt",true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 for (int i = 0; i < Main.subjects.length; ++i) {
                     if (Main.subjects[i] == null) {

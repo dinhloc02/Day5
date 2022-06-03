@@ -44,14 +44,15 @@ public class LogicStudent {
 
     public static void showInfo() {
         try {
-            FileWriter fileWriter = new FileWriter("file/data.txt",true);
+            FileWriter fileWriter = new FileWriter("data.txt",true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < Main.students.length; ++i) {
                 if (Main.students[i] == null) {
                     continue;
                 }
-                fileWriter.write(Main.students[i].toString());
                 System.out.println(Main.students[i]);
+                fileWriter.write(Main.students[i].toString());
+
             }
             fileWriter.close();
             bufferedWriter.close();

@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class LogicLearnSubject {
     public static void showInfo() {
         try {
-            FileWriter fileWriter = new FileWriter("file/data.txt", true);
+            FileWriter fileWriter = new FileWriter("data.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < Main.learnSubjects.length; ++i) {
                 if (Main.learnSubjects[i] == null) {
