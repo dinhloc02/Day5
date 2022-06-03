@@ -167,6 +167,7 @@ public class LogicLearnSubject {
 
             LearnSubject learnSubject = new LearnSubject(student, subjectScore);
             saveInfo(learnSubject);
+            FileUtil.writeDataToFile(Main.learnSubjects,"learn.txt");
         }
 
     }

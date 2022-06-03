@@ -1,6 +1,8 @@
 package entity;
 
-public class SubjectScore {
+import java.io.Serializable;
+
+public class SubjectScore implements Serializable {
     private Subject subject;
     private double score;
 
