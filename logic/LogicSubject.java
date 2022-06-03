@@ -2,6 +2,7 @@ package logic;
 
 import entity.Subject;
 import main.Main;
+import util.FileUtil;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -27,6 +28,7 @@ public class LogicSubject {
             Subject subject = new Subject();
             subject.inputInfo();
             saveInfo(subject);
+            FileUtil.writeDataToFile(Main.subjects, "subject.txt");
             showInfo();
 
         }
@@ -42,23 +44,13 @@ public class LogicSubject {
     }
 
     public static void showInfo() {
-            try {
-                FileWriter fw = new FileWriter("data.txt",true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                for (int i = 0; i < Main.subjects.length; ++i) {
-                    if (Main.subjects[i] == null) {
-                        continue;
-                    }
-
-                    System.out.println(Main.subjects[i]);
-                    bw.write(Main.subjects[i].toString());
-                }
-                bw.close();
-                fw.close();
-            }catch (Exception e){
-                System.out.println(e);
+        for (int i = 0; i < Main.subjects.length; ++i) {
+            if (Main.subjects[i] == null) {
+                continue;
             }
+            System.out.println(Main.subjects[i]);
 
+        }
 
     }
 

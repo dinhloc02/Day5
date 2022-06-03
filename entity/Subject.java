@@ -2,10 +2,11 @@ package entity;
 
 import impl.InfoImpl;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Subject extends Info {
+public class Subject extends Info implements Serializable {
     public static final String DC = "Đại cương";
     public static final String CSN = "Cơ sở ngành";
     public static final String CN = "Chuyên ngành";

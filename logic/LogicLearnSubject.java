@@ -5,6 +5,7 @@ import entity.Student;
 import entity.Subject;
 import entity.SubjectScore;
 import main.Main;
+import util.FileUtil;
 
 import java.io.*;
 import java.util.InputMismatchException;
@@ -12,24 +13,12 @@ import java.util.Scanner;
 
 public class LogicLearnSubject {
     public static void showInfo() {
-        try {
-            FileWriter fileWriter = new FileWriter("data.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < Main.learnSubjects.length; ++i) {
                 if (Main.learnSubjects[i] == null) {
                     continue;
                 }
-                fileWriter.write(Main.students[i].toString());
                 System.out.println(Main.learnSubjects[i]);
             }
-            bufferedWriter.close();
-            fileWriter.close();
-
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
-
-
     }
 
     public static void saveInfo(LearnSubject learnSubject) {
@@ -201,24 +190,17 @@ public class LogicLearnSubject {
         showInfo();
     }
 
-    //    public static void sortAlbTitle() {
-//        for (int i = 0; i < Main.learnSubjects.length; ++i) {
-//            if (Main.learnSubjects[i] == null) {
-//                continue;
-//            }
-//            for (int j = i + 1; j < Main.learnSubjects.length; ++j) {
-//                if (Main.learnSubjects[j] == null) {
-//                    continue;
-//                }
-//                if (Main.learnSubjects[i].getSubjectScores().g.toLowerCase().equals(Main.learnSubjects[j].getStudent().getFullName().toLowerCase())) {
-//                    LearnSubject temp = Main.learnSubjects[i];
-//                    Main.learnSubjects[i] = Main.learnSubjects[j];
-//                    Main.learnSubjects[j] = temp;
-//                }
-//            }
-//        }
-//        showInfo();
-//    }
+        public static void sortAlbTitle() {
+        for (int i = 0; i < Main.learnSubjects.length; ++i) {
+            if (Main.learnSubjects[i] == null) {
+                continue;
+            }
+            Main.learnSubjects[i].sortTitle();
+                }
+            }
+
+
+
     public static void score() {
         for (int i = 0; i < Main.learnSubjects.length; ++i) {
             if (Main.learnSubjects[i] == null) {
@@ -230,5 +212,3 @@ public class LogicLearnSubject {
     }
 
 }
-
-

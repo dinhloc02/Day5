@@ -2,10 +2,11 @@ package entity;
 
 import impl.InfoImpl;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Student implements InfoImpl {
+public class Student implements InfoImpl, Serializable {
     private static int autoId = 10000;
     private int id;
     private String fullName;

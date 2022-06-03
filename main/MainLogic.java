@@ -58,6 +58,8 @@ public class MainLogic {
                     LogicLearnSubject.sortAlbName();
                     break;
                 case 7:
+                    LogicLearnSubject.sortAlbTitle();
+                    LogicLearnSubject.showInfo();
                     break;
                 case 8:
                     LogicLearnSubject.score();

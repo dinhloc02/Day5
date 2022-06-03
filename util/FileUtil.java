@@ -1,7 +1,8 @@
 package util;
 
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class FileUtil {
@@ -9,11 +10,14 @@ public class FileUtil {
         if (FileUtil.isNullOrEmpty(fileName) || FileUtil.isNullOrEmpty(data)) {
             return;
         }
-        try   {
-            ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(fileName));
-            obj.writeObject(data);
-        } catch (Exception e) {
-            e.printStackTrace();
+        try {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(fileName));
+            objectOutputStream.writeObject(data);
+            objectOutputStream.writeObject("\n");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

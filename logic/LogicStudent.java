@@ -2,6 +2,7 @@ package logic;
 
 import entity.Student;
 import main.Main;
+import util.FileUtil;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -29,8 +30,10 @@ public class LogicStudent {
             Student student = new Student();
             student.inputInfo();
             saveInfo(student);
+            FileUtil.writeDataToFile(Main.students, "data.txt");
             showInfo();
         }
+
     }
 
     public static void saveInfo(Student student) {
@@ -43,22 +46,14 @@ public class LogicStudent {
     }
 
     public static void showInfo() {
-        try {
-            FileWriter fileWriter = new FileWriter("data.txt",true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < Main.students.length; ++i) {
-                if (Main.students[i] == null) {
-                    continue;
-                }
-                System.out.println(Main.students[i]);
-                fileWriter.write(Main.students[i].toString());
-
+        for (int i = 0; i < Main.students.length; ++i) {
+            if (Main.students[i] == null) {
+                continue;
             }
-            fileWriter.close();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            throw new RuntimeException();
+            System.out.println(Main.students[i]);
+
         }
+
     }
 
     public static boolean isempty() {
